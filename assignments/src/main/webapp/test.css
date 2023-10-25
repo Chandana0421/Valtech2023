@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+
+.button {
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.alert {
+    background-color: #e74c3c;
+    color: #fff;
+    font-size: 18px;
+    padding: 15px;
+}
+
+.link {
+    color: #2ecc71;
+    text-decoration: none;
+}
+
+.box {
+    border: 2px solid #f4f4f4;
+    padding: 5px;
+}

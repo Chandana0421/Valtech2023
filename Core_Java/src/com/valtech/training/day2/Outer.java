@@ -84,11 +84,11 @@ public class Outer {
 				return 0;
 			}
 			
-			@Override
-			public double add(double a, double b) {
-				// TODO Auto-generated method stub
-				return 0;
-			}
+			//@Override
+//			public double add(double a, double b) {
+//				// TODO Auto-generated method stub
+//				return 0;
+//			}
 			
 			@Override
 			public int add(int a, int b) {

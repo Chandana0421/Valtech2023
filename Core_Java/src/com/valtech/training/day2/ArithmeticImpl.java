@@ -25,11 +25,11 @@ public class ArithmeticImpl implements Arithmetic{
 		return a/b;
 	}
 
-	@Override
-	public double add(double a, double b) {
-		return a+b;
-	}
-	
+//	@Override
+//	public double add(double a, double b) {
+//		return a+b;
+//	}
+//	
 	public static void main(String[] args) {
 		Arithmetic ans = new ArithmeticImpl();
 		//BECAUSE DIV THROWS EXCEPTION, YOU HAVE TO PUT TRY-CATCH OR THROW WHEN YOU CALL THAT METHOD

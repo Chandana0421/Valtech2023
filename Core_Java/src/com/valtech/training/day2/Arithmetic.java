@@ -13,7 +13,7 @@ public interface Arithmetic {
 	
 	//Overload methods in intf
 	//static double add(double a, double b); - static no semicolon, intf semicolom
-	double add(double a, double b);
+//	double add(double a, double b);
 	
 	//you can have main
 	public static void main( String[] args ) {

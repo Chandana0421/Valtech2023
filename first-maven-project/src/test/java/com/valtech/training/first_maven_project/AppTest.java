@@ -10,11 +10,7 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
+
     public AppTest( String testName )
     {
         super( testName );
@@ -28,6 +24,10 @@ public class AppTest
         return new TestSuite( AppTest.class );
     }
 
+    public void testSayHello() {
+    	App app = new App();
+    	assertEquals("Hello World", app.sayHello());
+    }
     /**
      * Rigourous Test :-)
      */

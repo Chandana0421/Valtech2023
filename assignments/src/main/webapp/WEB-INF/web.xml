@@ -7,9 +7,20 @@
 		<servlet-class>assignments.NumberSystemServlet</servlet-class>
 	</servlet>
 	
+		<servlet>
+		<servlet-name>ThreadsLoginServlet</servlet-name>
+		<servlet-class>assignments.ThreadsLoginServlet</servlet-class>
+	</servlet>
+	
+	
 	<servlet-mapping>
 		<servlet-name>NumberSystemServlet</servlet-name>
 		<url-pattern>/NumberSystemServlet</url-pattern>
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>ThreadsLoginServlet</servlet-name>
+		<url-pattern>/threadsLogin</url-pattern>
 	</servlet-mapping>
 	
   <welcome-file-list>

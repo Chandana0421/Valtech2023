@@ -51,7 +51,7 @@ class ParameterizedArithmeticTest {
 		assertEquals(c, arithmetic.add(a, b));
 	}
 	
-	@ParameterizedTest(name= "Add with CSV {0} + {1} = {2}")
+	@ParameterizedTest(name= "Add with method {0} + {1} = {2}")
 	@MethodSource(value = "addArgsGenerator") //this method has to be static!
 	void testWithMethod(int a, int b, int c){
 		assertEquals(c, arithmetic.add(a, b));

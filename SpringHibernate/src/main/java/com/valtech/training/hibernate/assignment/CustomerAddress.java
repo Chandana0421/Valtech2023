@@ -1,4 +1,4 @@
-package com.valtech.training.hibernate;
+package com.valtech.training.hibernate.assignment;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,36 +9,37 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
-public class Address {
+import com.valtech.training.hibernate.Customer;
 
+@Entity
+public class CustomerAddress {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String street;
 	private String city;
 	private int zipCode; // underlying column will be zip_code. Using @column you can customize it
 	
-	@OneToOne(targetEntity = Customer.class,cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@OneToOne(targetEntity = Customers.class,cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	//only on child! ref->pk column of the parent, name-> column name in the child
 	@JoinColumn(name="customer_id",referencedColumnName = "id")
-	private Customer customer;
+	private Customers customer;
 
 
 	
-	public Address() {
+	public CustomerAddress() {
 	}
 
-	public Address(String street, String city, int zipCode) {
+	public CustomerAddress(String street, String city, int zipCode) {
 		this.street = street;
 		this.city = city;
 		this.zipCode = zipCode;
 	}
 
-	public Customer getCustomer() {
+	public Customers getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(Customers customer) {
 		this.customer = customer;
 	}
 

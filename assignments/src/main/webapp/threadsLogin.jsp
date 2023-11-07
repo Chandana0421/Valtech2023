@@ -50,7 +50,7 @@
 						with Instagram</button>
 						<span class="mt-2 ml-7 text-2xl font-thin arrow">></span>
 						</div>
-						<footer class="text-center "> <a class="text-xs link-color" href="#"> © 2023 </a>
+						<footer class="text-center "> <a class="text-xs link-color" href="#"> &copy; 2023 </a>
 			<a class="text-xs link-color px-1" href="#"> Threads Terms </a>
 			<a class="text-xs link-color px-1" href="#"> Privacy Policy </a>
 			<a class="text-xs link-color px-1" href="#"> Cookies Policy </a>

@@ -1,4 +1,4 @@
-package com.valtech.training.hibernate;
+package com.valtech.training.hibernate.assignment;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,37 +9,38 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
-public class Address {
+import com.valtech.training.hibernate.Customer;
 
+@Entity
+public class VendorAddress {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String street;
 	private String city;
 	private int zipCode; // underlying column will be zip_code. Using @column you can customize it
 	
-	@OneToOne(targetEntity = Customer.class,cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@OneToOne(targetEntity = Vendors.class,cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	//only on child! ref->pk column of the parent, name-> column name in the child
-	@JoinColumn(name="customer_id",referencedColumnName = "id")
-	private Customer customer;
+	@JoinColumn(name="vendor_id",referencedColumnName = "id")
+	private Vendors vendor;
 
 
 	
-	public Address() {
+	public VendorAddress() {
 	}
 
-	public Address(String street, String city, int zipCode) {
+	public VendorAddress(String street, String city, int zipCode) {
 		this.street = street;
 		this.city = city;
 		this.zipCode = zipCode;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public Vendors getVendor() {
+		return vendor;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setVendor(Vendors vendor) {
+		this.vendor = vendor;
 	}
 
 	public int getId() {

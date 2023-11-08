@@ -8,8 +8,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.valtech.training.hibernate.Account;
 import com.valtech.training.hibernate.Tx;
 
 @Entity
@@ -20,13 +22,19 @@ public class Items {
 	private String name,description;
 	private double unitPrice;
 	
-	@OneToMany(targetEntity = OrderDescription.class, cascade = { CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH }, fetch = FetchType.LAZY, mappedBy = "items")
-	// fetch is always LAZY for a collection
-	private Set<OrderDescription> orderDesc;
+//	@OneToMany(targetEntity = OrderDescription.class, cascade = { CascadeType.MERGE, CascadeType.PERSIST,
+//			CascadeType.REFRESH }, fetch = FetchType.LAZY, mappedBy = "items")
+//	// fetch is always LAZY for a collection
+//	private Set<OrderDescription> orderDesc;
 	
-	//add vendor id
+	@ManyToMany(targetEntity = Items.class, fetch = FetchType.LAZY, mappedBy = "items")
+	private Set<Vendors> vendors;
 	
+	@Override
+	public String toString() {
+		return "Items [id=" + id + ", name=" + name + ", description=" + description + ", unitPrice=" + unitPrice
+				+ ", vendors=" + vendors + "]";
+	}
 	public Items() {
 		// TODO Auto-generated constructor stub
 	}
@@ -58,6 +66,19 @@ public class Items {
 	}
 	public void setUnitPrice(double unitPrice) {
 		this.unitPrice = unitPrice;
+	}
+	
+//	public Set<OrderDescription> getOrderDesc() {
+//		return orderDesc;
+//	}
+//	public void setOrderDesc(Set<OrderDescription> orderDesc) {
+//		this.orderDesc = orderDesc;
+//	}
+	public Set<Vendors> getVendors() {
+		return vendors;
+	}
+	public void setVendors(Set<Vendors> vendors) {
+		this.vendors = vendors;
 	}
 
 }

@@ -15,6 +15,7 @@
 		<p:value>counterAdvice</p:value>
 		<p:value>logReturnAdvice</p:value>
 		<p:value>exceptionHandlerAdvice</p:value>
+		<p:value>allInAdvice</p:value>
 		</p:list>
 		</p:property>
 	</p:bean>
@@ -22,5 +23,6 @@
 	<p:bean id="counterAdvice" init-method="loadCounters" destroy-method="saveCounters" class="com.valtech.training.spring.aop.CounterAdvice"></p:bean>
 	<p:bean id="logReturnAdvice" class="com.valtech.training.spring.aop.LogReturnAdvice"></p:bean>
 	<p:bean id="exceptionHandlerAdvice" class="com.valtech.training.spring.aop.ExceptionHandlerAdvice"></p:bean>
+	<p:bean id="allInAdvice" class="com.valtech.training.spring.aop.AllInOneAdvice"></p:bean>
 	
 </p:beans>

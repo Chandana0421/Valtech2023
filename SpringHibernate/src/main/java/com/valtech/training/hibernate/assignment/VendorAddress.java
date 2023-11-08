@@ -13,12 +13,13 @@ import com.valtech.training.hibernate.Customer;
 
 @Entity
 public class VendorAddress {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+//	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private int id;
 	private String street;
 	private String city;
 	private int zipCode; // underlying column will be zip_code. Using @column you can customize it
 	
+	@Id
 	@OneToOne(targetEntity = Vendors.class,cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	//only on child! ref->pk column of the parent, name-> column name in the child
 	@JoinColumn(name="vendor_id",referencedColumnName = "id")
@@ -43,13 +44,13 @@ public class VendorAddress {
 		this.vendor = vendor;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	public String getStreet() {
 		return street;

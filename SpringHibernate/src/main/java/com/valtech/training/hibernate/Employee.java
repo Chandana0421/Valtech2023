@@ -46,6 +46,7 @@ public class Employee {
 		this.gender = gender;
 		this.active = active;
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -87,5 +88,10 @@ public class Employee {
 	}
 	public void setVersion(int version) {
 		this.version = version;
+	}
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", dob=" + dob + ", salary=" + salary + ", gender=" + gender
+				+ ", active=" + active + ", version=" + version + "]";
 	}
 }

@@ -23,9 +23,9 @@ class AOPTest {
 	void test() {
 		Arithmetic arith = (Arithmetic) appCtx.getBean(Arithmetic.class);
 		System.out.println(arith.getClass().getName()); // gives the class name
-		assertEquals(7,arith.add(2, arith.add(2, 3)));
+		assertEquals(7,arith.add(2, arith.add(-2, -3)));
 		assertEquals(-2,arith.add(-1, arith.sub(2, 3)));
-		assertEquals(10,arith.add(5, arith.sub(9, 4)));
+		assertEquals(10,arith.add(5, arith.sub(9, -4)));
 		
 		try {
 			arith.div(5, 0);

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:beans default-autowire="byType"
+	xmlns:p="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans spring-beans-3.2.xsd ">
+
+<p:import resource="classpath:resources.xml"/>
+	<!-- EmployeeService and add Transaction -->
+	
+	<p:bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+	<p:property name="transactionAttributes">
+	<p:props>
+	<!-- key -> name of the method, value -> transaction attribute you want to associate, * means wild-card i.e all methods -->
+	<p:prop key="*">PROPAGATION_REQUIRED</p:prop>
+	<p:prop key="incrementSalary">PROPAGATION_REQUIRES_NEW</p:prop>
+	<p:prop key="get*">PROPAGATION_SUPPORTS</p:prop>
+	</p:props>
+	</p:property>
+	</p:bean>
+	
+	<p:bean id="empSer"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<p:property name="target">
+			<p:bean
+				class="com.valtech.training.spring.service.EmployeeServiceImpl"></p:bean>
+		</p:property>
+		<p:property name="interceptorNames">
+		<p:list>
+		<p:value>transactionInterceptor</p:value>
+		</p:list>
+		</p:property>
+	</p:bean>
+
+<!-- 
+	 Register Datasource 
+	<p:bean id="dataSource" class="com.mysql.cj.jdbc.MysqlDataSource">
+		<p:property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></p:property> 
+		<p:property name="url"
+			value="jdbc:mysql://localhost:3306/valtechOct2023"></p:property>
+		<p:property name="user" value="root"></p:property>
+		<p:property name="password" value="root"></p:property>
+	</p:bean>
+	SessionFactory
+	<p:bean id="sessionFactory" autowire="no"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		requires a source, but because we've given auto-wire we don't have 
+			to define it here again 
+			<p:property name="dataSource" ref="dataSource"></p:property>
+		<p:property name="annotatedClasses">
+			<p:list>
+				<p:value>com.valtech.training.hibernate.Employee</p:value>
+				 you're supposed to add all dependencies like dept etc
+			</p:list>
+		</p:property>
+	</p:bean> -->
+	<!-- EmployeeDAO -->
+	<p:bean
+		class="com.valtech.training.spring.dao.EmployeeDaoImpl"></p:bean>
+
+</p:beans>

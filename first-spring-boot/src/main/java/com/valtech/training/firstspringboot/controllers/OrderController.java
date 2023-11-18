@@ -61,11 +61,10 @@ public class OrderController {
 		return "orders/edit";
 	}
 	
-	//delete but you nevr delete data from db
+	//delete but you never delete data from db
 //	@GetMapping("/delete")
 //	public String deleteOrder(@RequestParam("id") long id,Model model) {
 //		OrderService.del
-//		model.addAttribute("orders", orderService.getAll().stream().map(o -> new OrderModel(o)).collect(Collectors.toList()));
 //		return "orders/list";
 //	}
 }

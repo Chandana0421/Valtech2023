@@ -67,4 +67,10 @@ public class EmployeeController {
 		model.addAttribute("employee",empService.getAllEmployees().stream().map(o -> new EmployeeModel(o)).collect(Collectors.toList()));
 		return "employee/listEmployee";
 	}
+	
+	@GetMapping("/view")
+	public String viewOrder(@RequestParam("id") int id,Model model) {
+		model.addAttribute("employee", new EmployeeModel(empService.getEmployee(id)));
+		return "employee/view";
+	}
 }

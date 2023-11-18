@@ -21,7 +21,7 @@ public class EmployeeModel {
 		this.salary = e.getSalary();
 	}
 	public Employee getEmployee() {
-		return new Employee(seniority,experience,age,name,deptId,salary);
+		return new Employee(id,seniority,experience,age,name,deptId,salary);
 	}
 	public int getId() {
 		return id;

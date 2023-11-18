@@ -31,7 +31,6 @@ public class Employee {
 	}
 
 	public Employee(int id, int seniority, int experience, int age, String name, int deptId, int salary) {
-		super();
 		this.id = id;
 		this.seniority = seniority;
 		this.experience = experience;

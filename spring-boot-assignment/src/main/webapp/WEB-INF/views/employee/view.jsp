@@ -12,15 +12,19 @@
 	<%
 	EmployeeModel emp = (EmployeeModel) request.getAttribute("employee");
 	%>
-	<form method="post" action="listEmployee">
+	<form method="post" action="save">
 		<table border="1">
 			<tr>
 				<td>Id</td>
 				<td><%=emp.getId()%></td>
 			</tr>
 			<tr>
-				<td>Name</td>
-				<td><%=emp.getName()%></td>
+				<td>First Name</td>
+				<td><%=emp.getFirstName()%></td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td><%=emp.getLastName()%></td>
 			</tr>
 			<tr>
 				<td>Salary</td>

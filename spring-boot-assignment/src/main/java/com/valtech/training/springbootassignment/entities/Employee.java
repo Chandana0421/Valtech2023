@@ -18,7 +18,7 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int seniority, experience, age;
-    private String name;
+    private String firstName,lastName;
     private int salary;
     @ManyToOne(targetEntity = Department.class,cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch = FetchType.EAGER)
 	@JoinColumn(name = "department",referencedColumnName = "id")
@@ -28,21 +28,33 @@ public class Employee {
 	}
 
 
-	public Employee(int id, int seniority, int experience, int age, String name, int salary, Department department) {
+	public Employee(int id, int seniority, int experience, int age, String firstName, String lastName, int salary, Department department) {
 		this.id = id;
 		this.seniority = seniority;
 		this.experience = experience;
 		this.age = age;
-		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.salary = salary;
 		this.department = department;
 	}
-
-	public Employee(int seniority, int experience, int age, String name, int salary, Department department) {
+	
+	public Employee(int id, int seniority, int experience, int age, String firstName, String lastName, int salary) {
+		this.id = id;
 		this.seniority = seniority;
 		this.experience = experience;
 		this.age = age;
-		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.salary = salary;
+	}
+
+	public Employee(int seniority, int experience, int age,  String firstName, String lastName, int salary, Department department) {
+		this.seniority = seniority;
+		this.experience = experience;
+		this.age = age;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.salary = salary;
 		this.department = department;
 	}
@@ -82,13 +94,25 @@ public class Employee {
 		this.age = age;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 
 	public int getSalary() {
 		return salary;

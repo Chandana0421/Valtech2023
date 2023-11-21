@@ -14,8 +14,6 @@ public interface DepartmentService {
 
 	List<Department> getAllDepartments();
 	
-	Department getDepartmentById(int id);
-
 	Department getLastDepartment();
 	
 	Department getFirstDepartment();

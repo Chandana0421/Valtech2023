@@ -17,7 +17,8 @@
 	<table border="1">
 		<tr>
 			<th>Id</th>
-			<th>Name</th>
+			<th>First Name</th>
+			<th>Last Name</th>
 			<th>Seniority</th>
 			<th>Experience</th>
 			<th>Salary</th>
@@ -30,7 +31,8 @@
 		%>
 		<tr>
 			<td>${e.id}</td>
-			<td>${e.name}</td>
+			<td>${e.firstName}</td>
+			<td>${e.lastName}</td>
 			<td>${e.seniority}</td>
 			<td>${e.experience}</td>
 			<td>${e.salary}</td>

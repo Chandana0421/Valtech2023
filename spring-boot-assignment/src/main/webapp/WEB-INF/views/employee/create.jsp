@@ -11,50 +11,41 @@
 <body>
 	<%
 	EmployeeModel emp = (EmployeeModel) request.getAttribute("employee");
-	request.setAttribute("emp", emp);
 	%>
 	<form method="post" action="save?id=<%=emp.getId()%>">
 		<table>
 			<tr>
 				<td>Id</td>
-				<td><input type="text" name="id" disabled="disabled"
-					value="<%=emp.getId()%>" /></td>
+				<td><input type="text" name="id"/></td>
 			</tr>
 			<tr>
 				<td>First Name</td>
-				<td><input type="text" name="firstName"
-					value="<%=emp.getFirstName()%>" /></td>
+				<td><input type="text" name="firstName"/></td>
 			</tr>
 			<tr>
 				<td>Last Name</td>
-				<td><input type="text" name="lastName"
-					value="<%=emp.getLastName()%>" /></td>
+				<td><input type="text" name="lastName"/></td>
 			</tr>
 			<tr>
 				<td>Salary</td>
-				<td><input type="text" name="salary"
-					value="<%=emp.getSalary()%>" /></td>
+				<td><input type="text" name="salary"/></td>
 			</tr>
 			<tr>
 				<td>Seniority</td>
-				<td><input type="text" name="seniority"
-					value="<%=emp.getSeniority()%>" /></td>
+				<td><input type="text" name="seniority"/></td>
 			</tr>
 			<tr>
 				<td>Experience</td>
-				<td><input type="text" name="experience"
-					value="<%=emp.getExperience()%>" /></td>
+				<td><input type="text" name="experience"/></td>
 			</tr>
 			<tr>
 				<td>Age</td>
-				<td><input type="text" name="age" value="<%=emp.getAge()%>" /></td>
+				<td><input type="text" name="age"/></td>
 			</tr>
-<tr>
-					<td>Department Id</td>
-					<td><input type="text" name="deptId"
-						value="<%=emp.getDepartment().getId()%>" /></td>
-					</tr>
-
+			<tr>
+			<td>Department Id</td>
+			<td><input type="text" name="department"/></td>
+			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" name="submit"
 					value="Create" /> <input type="submit" name="cancel"

@@ -10,7 +10,7 @@ public class EmployeeModel {
 	
 	private int id;
 	private int seniority, experience, age;
-    private String name;
+    private String firstName, lastName;
     private int salary;
     private Department department;
 	public EmployeeModel() {
@@ -20,12 +20,13 @@ public class EmployeeModel {
 		this.seniority = e.getSeniority();
 		this.experience = e.getExperience();
 		this.age = e.getAge();
-		this.name = e.getName();
+		this.firstName = e.getFirstName();
+		this.lastName = e.getLastName();
 		this.department = e.getDepartment();
 		this.salary = e.getSalary();
 	}
 	public Employee getEmployee() {
-		return new Employee(id,seniority,experience,age,name,salary,department);
+		return new Employee(id,seniority,experience,age,firstName,lastName,salary,department);
 	}
 	public Department getDepartment() {
 		return department;
@@ -57,11 +58,17 @@ public class EmployeeModel {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public int getSalary() {
 		return salary;

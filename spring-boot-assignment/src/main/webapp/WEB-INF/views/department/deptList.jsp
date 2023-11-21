@@ -14,33 +14,34 @@
 	DepartmentModel d = (DepartmentModel) request.getAttribute("department");
 	request.setAttribute("d", d);
 	%>
-<form method="post" action="listEmployee">
-	<table border="1">
+	<table>
 		<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th>Location</th>
-			<th>Employee</th>
+			<td>Id</td>
+			<td>: ${d.id}</td>
 		</tr>
 		<tr>
-			<td>${d.id}</td>
-			<td>${d.name}</td>
-			<td>${d.location}</td>
+			<td>Name</td>
+			<td>: ${d.name}</td>
+		</tr>
+		<tr>
+		<td>Location</td>
+		<td>: ${d.location}</td>
 		</tr></table>
 		<a href="next?id=${d.id}">Next</a> <a
 				href="previous?id=${d.id}">Previous</a>
 				<a href="first?id=${d.id}">First</a>
-				<a href="last?id=${d.id}">Lst</a>
+				<a href="last?id=${d.id}">Last</a>
 				</form>
 		</table>
 	<%
 	List<EmployeeModel> emp = (List<EmployeeModel>) request.getAttribute("employees");
 	%>
-	
-	<table>
+	<h3>Employees in ${d.name}</h3>
+	<table border="1">
 	<tr>
 	<th>Id</th>
-			<th>Name</th>
+			<th>First Name</th>
+			<th>Last Name</th>
 			<th>Seniority</th>
 			<th>Experience</th>
 			<th>Salary</th>
@@ -52,11 +53,15 @@
 		%>
 		<tr>
 			<td>${e.id}</td>
-			<td>${e.name}</td>
+			<td>${e.firstName}</td>
+			<td>${e.lastName}</td>
 			<td>${e.seniority}</td>
 			<td>${e.experience}</td>
 			<td>${e.salary}</td>
 			<td>${e.age}</td>
+			<%-- <td><a href="delete?id=${e.id}">Delete</a> <a
+				href="edit?id=${e.id}">Edit</a>
+				<a href="view?id=${e.id}">View</a></td> --%>
 		</tr>
 		<%
 		}

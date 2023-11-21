@@ -38,10 +38,6 @@ public class DepartmentServiceImpl implements DepartmentService{
 		return deptRepo.findAll();
 	}
 	@Override
-	public Department getDepartmentById(int id) {
-		return deptRepo.findDepartmentById(id);
-	}
-	@Override
 	public Department getLastDepartment() {
 		return deptRepo.findTopByOrderByIdDesc();
 	}

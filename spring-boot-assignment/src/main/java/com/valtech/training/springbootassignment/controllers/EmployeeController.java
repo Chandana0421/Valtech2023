@@ -30,7 +30,7 @@ public class EmployeeController {
 	@GetMapping("/new")
 	public String newEmployee(Model model) {
 		model.addAttribute("employee", new EmployeeModel());
-		return "employee/edit";
+		return "employee/create";
 	}
 	
 	@PostMapping("/save")

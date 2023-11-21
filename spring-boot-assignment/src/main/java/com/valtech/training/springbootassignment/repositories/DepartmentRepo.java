@@ -7,7 +7,7 @@ import com.valtech.training.springbootassignment.entities.Department;
 
 public interface DepartmentRepo extends JpaRepository<Department, Integer>{
 	
-	Department findDepartmentById(int id);
+//	Department findDepartmentById(int id);
 	
 	@Query(value = "SELECT * FROM Department ORDER BY id DESC LIMIT 1")
 	Department findTopByOrderByIdDesc();

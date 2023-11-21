@@ -10,8 +10,13 @@ public interface DepartmentService {
 
 	Department updateDepartment(Department department);
 
-	Department getEmployee(int departmentId);
+	Department getDepartment(int departmentId);
 
-	List<Department> getAllEmployees();
+	List<Department> getAllDepartments();
+	
+	Department getDepartmentById(int id);
 
+	Department getLastDepartment();
+	
+	Department getFirstDepartment();
 }

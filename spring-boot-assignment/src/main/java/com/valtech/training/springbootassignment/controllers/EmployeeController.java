@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.valtech.training.springbootassignment.models.EmployeeModel;
-import com.valtech.training.springbootassignment.services.DepartmentService;
 import com.valtech.training.springbootassignment.services.EmployeeService;
 
 @Controller
@@ -21,9 +20,6 @@ public class EmployeeController {
 	
 	@Autowired
 	EmployeeService empService;
-	
-	@Autowired
-	DepartmentService deptService;
 	
 	@GetMapping("/listEmployee")
 	public String listAllEmployee(Model model) {
@@ -49,27 +45,27 @@ public class EmployeeController {
 	
 	//cancel
 	@PostMapping(path = "/save", params = "cancel")
-	public String cancelEditOrder(Model model) {
+	public String cancelEditEmployee(Model model) {
 		model.addAttribute("employee", empService.getAllEmployees().stream().map(o -> new EmployeeModel(o)).collect(Collectors.toList()));
 		return "employee/listEmployee";
 		
 	}
 	
 	@GetMapping("/edit")
-	public String editOrder(@RequestParam("id") int id,Model model) {
+	public String editEmployee(@RequestParam("id") int id,Model model) {
 		model.addAttribute("employee", new EmployeeModel(empService.getEmployee(id)));
 		return "employee/edit";
 	}
 	
 	@GetMapping("/delete")
-	public String deleteOrder(@RequestParam("id") int id,Model model) {
+	public String deleteEmployee(@RequestParam("id") int id,Model model) {
 		empService.deleteEmployee(id);
 		model.addAttribute("employee",empService.getAllEmployees().stream().map(o -> new EmployeeModel(o)).collect(Collectors.toList()));
 		return "employee/listEmployee";
 	}
 	
 	@GetMapping("/view")
-	public String viewOrder(@RequestParam("id") int id,Model model) {
+	public String viewEmployee(@RequestParam("id") int id,Model model) {
 		model.addAttribute("employee", new EmployeeModel(empService.getEmployee(id)));
 		return "employee/view";
 	}

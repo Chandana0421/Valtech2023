@@ -45,8 +45,8 @@
 			<tr>
 				<td>Department Id</td>
 				<td><input type="text" name="deptId"
-					value="<%=emp.getDeptId()%>" /></td>
-			</tr>
+					value="<%=emp.getDepartment().getId()%>" /></td>
+			</tr> 
 			<tr>
 				<td colspan="2"><input type="submit" name="submit"
 					value="Create" /> <input type="submit" name="cancel"

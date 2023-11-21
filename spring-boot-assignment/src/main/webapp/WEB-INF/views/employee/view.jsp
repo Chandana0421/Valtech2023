@@ -12,7 +12,7 @@
 	<%
 	EmployeeModel emp = (EmployeeModel) request.getAttribute("employee");
 	%>
-	<form method="post" action="save?id=<%=emp.getId()%>">
+	<form method="post" action="listEmployee">
 		<table border="1">
 			<tr>
 				<td>Id</td>
@@ -40,8 +40,8 @@
 			</tr>
 			<tr>
 				<td>Department Id</td>
-				<td><%=emp.getDeptId()%></td>
-			</tr>
+				<td><%=emp.getDepartment().getId()%></td>
+			</tr> 
 			<tr>
 				<td colspan="2"><input type="submit" name="cancel"
 					value="back" /></td>

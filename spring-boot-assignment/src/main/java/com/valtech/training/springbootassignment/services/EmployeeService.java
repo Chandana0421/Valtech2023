@@ -1,6 +1,7 @@
 package com.valtech.training.springbootassignment.services;
 
 import java.util.List;
+import java.util.Set;
 
 import com.valtech.training.springbootassignment.entities.Employee;
 
@@ -15,5 +16,5 @@ public interface EmployeeService {
 	List<Employee> getAllEmployees();
 	
 	void deleteEmployee(int id);
-
+	
 }

@@ -1,10 +1,15 @@
 package com.valtech.training.springbootassignment.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Employee {
@@ -14,31 +19,44 @@ public class Employee {
 	private int id;
 	private int seniority, experience, age;
     private String name;
-    @Column(name = "deptid")
-    private int deptId;
     private int salary;
-    
-    public Employee() {
+    @ManyToOne(targetEntity = Department.class,cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch = FetchType.EAGER)
+	@JoinColumn(name = "department",referencedColumnName = "id")
+	private Department department;
+   
+	public Employee() {
 	}
 
-	public Employee(int seniority, int experience, int age, String name, int deptId, int salary) {
-		this.seniority = seniority;
-		this.experience = experience;
-		this.age = age;
-		this.name = name;
-		this.deptId = deptId;
-		this.salary = salary;
-	}
 
-	public Employee(int id, int seniority, int experience, int age, String name, int deptId, int salary) {
+	public Employee(int id, int seniority, int experience, int age, String name, int salary, Department department) {
 		this.id = id;
 		this.seniority = seniority;
 		this.experience = experience;
 		this.age = age;
 		this.name = name;
-		this.deptId = deptId;
 		this.salary = salary;
+		this.department = department;
 	}
+
+	public Employee(int seniority, int experience, int age, String name, int salary, Department department) {
+		this.seniority = seniority;
+		this.experience = experience;
+		this.age = age;
+		this.name = name;
+		this.salary = salary;
+		this.department = department;
+	}
+
+
+	public Department getDepartment() {
+		return department;
+	}
+
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 
 	public int getSeniority() {
 		return seniority;
@@ -70,14 +88,6 @@ public class Employee {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public int getDeptId() {
-		return deptId;
-	}
-
-	public void setDeptId(int deptId) {
-		this.deptId = deptId;
 	}
 
 	public int getSalary() {

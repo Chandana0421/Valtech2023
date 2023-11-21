@@ -12,10 +12,10 @@ import com.valtech.training.springbootassignment.repositories.DepartmentRepo;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
-public class DepartmentServiceImpl implements DepartmentService {
-	
+public class DepartmentServiceImpl implements DepartmentService{
 	@Autowired
 	DepartmentRepo deptRepo;
+	
 	
 	@Override
 	public Department createDepartment(Department department) {
@@ -29,12 +29,25 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 	
 	@Override
-	public Department getEmployee(int departmentId) {
+	public Department getDepartment(int departmentId) {
 		return deptRepo.getReferenceById(departmentId);
 	}
 	
 	@Override
-	public List<Department> getAllEmployees(){
+	public List<Department> getAllDepartments(){
 		return deptRepo.findAll();
 	}
+	@Override
+	public Department getDepartmentById(int id) {
+		return deptRepo.findDepartmentById(id);
+	}
+	@Override
+	public Department getLastDepartment() {
+		return deptRepo.findTopByOrderByIdDesc();
+	}
+	@Override
+	public Department getFirstDepartment() {
+		return deptRepo.findTopByOrderById();
+	}
+	
 }

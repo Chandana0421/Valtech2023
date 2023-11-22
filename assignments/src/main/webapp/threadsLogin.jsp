@@ -59,8 +59,8 @@
 				</div>
 				 
 				
-			</div>
-			<!-- <div class="rightcorner">
+			
+			<!-- </div><div class="rightcorner">
 			<p class="text-xs link-color px-1">Scan to get the app</p><p>
 			<img alt="" src="qr.png">
 			</div> -->

@@ -1,7 +1,5 @@
 package firstWeb;
 
-import java.nio.file.spi.FileSystemProvider;
-
 //import com.valtech.training.day4.Department;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import firstWeb.Employee;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 

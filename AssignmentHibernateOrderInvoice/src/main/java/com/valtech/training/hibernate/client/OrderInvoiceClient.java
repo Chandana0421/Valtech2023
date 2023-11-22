@@ -57,11 +57,11 @@ public class OrderInvoiceClient {
 		//Orders -> Customers
 		cus1.addOrders(order1);
 		//Address -> Customers
-		add.setCustomer(cus1);
+		cus1.setAddress(add);
 		//Address -> Vendors
-		add2.setVendor(vendor1);
-		add3.setVendor(vendor2);
-		add4.setVendor(vendor3);
+		vendor1.setAddress(add2);
+		vendor2.setAddress(add3);
+		vendor3.setAddress(add4);
 		//Items -> Vendors
 		vendor2.addItems(item2);
 		vendor2.addItems(item3);

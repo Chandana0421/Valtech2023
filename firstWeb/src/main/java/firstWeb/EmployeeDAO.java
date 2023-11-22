@@ -3,8 +3,6 @@ package firstWeb;
 import java.sql.SQLException;
 import java.util.List;
 
-import firstWeb.Employee;
-
 public interface EmployeeDAO {
 	
 	int firstId() throws SQLException;

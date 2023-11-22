@@ -24,7 +24,8 @@ public class Vendors {
 	private String name;
 	
 	@OneToOne(targetEntity = Address.class, cascade = {CascadeType.MERGE,CascadeType.REMOVE},
-			fetch = FetchType.LAZY, mappedBy = "vendor")
+			fetch = FetchType.EAGER)
+	@JoinColumn(name="address_id",referencedColumnName = "id")
 	private Address address;
 	
 	//no cascade because account and customer are two independent guys

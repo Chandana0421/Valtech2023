@@ -57,7 +57,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public void createEmployee(Employee emp) {
-		String createQry = "INSERT INTO EMPLOYEE (NAME,AGE,EXPERIENCE,SENIORITY,SALARY) VALUES (?,?,?,?,?,?)";
+		String createQry = "INSERT INTO EMPLOYEE (NAME,AGE,EXPERIENCE,SENIORITY,SALARY) VALUES (?,?,?,?,?)";
 		new JdbcTemplate(dataSource).update(createQry, emp.getName(), emp.getAge(), emp.getExperience(),
 				emp.getSeniority(), emp.getSalary());
 	}

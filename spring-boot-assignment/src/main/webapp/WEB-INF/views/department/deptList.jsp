@@ -29,7 +29,7 @@
 		</tr></table>
 		<a href="next?id=${d.id}">Next</a> <a
 				href="previous?id=${d.id}">Previous</a>
-				<a href="first?id=${d.id}">First</a>
+				<a href="first">First</a>
 				<a href="last?id=${d.id}">Last</a>
 				</form>
 		</table>

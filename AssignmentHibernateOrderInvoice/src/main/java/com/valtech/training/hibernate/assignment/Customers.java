@@ -9,26 +9,24 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
 
 @Entity
 public class Customers {
 
 	@Id
 	private int id;
-	private String name,email,phoneNumber;
+	private String name, email, phoneNumber;
 	private int age;
-	@OneToOne(targetEntity = Address.class, cascade = {CascadeType.MERGE,CascadeType.REMOVE},
-			fetch = FetchType.LAZY, mappedBy = "customer")
+	@OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "address_id", referencedColumnName = "id")
 	private Address address;
-//	
-	@OneToMany(targetEntity = Orders.class, cascade = { CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH }, fetch = FetchType.LAZY, mappedBy = "customers")
+	@OneToMany(targetEntity = Orders.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "customers")
 	private Set<Orders> orders;
-	
+
 //
 //	@Override
 //	public String toString() {
@@ -46,7 +44,6 @@ public class Customers {
 
 	public Customers() {
 	}
-
 
 	public Address getAddress() {
 		return address;
@@ -95,7 +92,7 @@ public class Customers {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
+
 	public Set<Orders> getOrders() {
 		return orders;
 	}
@@ -103,7 +100,7 @@ public class Customers {
 	public void setOrders(Set<Orders> orders) {
 		this.orders = orders;
 	}
-	
+
 	public void addOrders(Orders or) {
 		if (getOrders() == null) {
 			setOrders(new HashSet<Orders>());

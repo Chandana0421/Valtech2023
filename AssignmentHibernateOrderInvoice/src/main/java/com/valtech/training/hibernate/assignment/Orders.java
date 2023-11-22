@@ -15,20 +15,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
 public class Orders {
-	@Id
 	
+	@Id
 	private int id;
-	@Basic @Temporal(TemporalType.DATE)
 	private Date date;
-	@OneToMany(targetEntity = OrderDescription.class, cascade = { CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH }, fetch = FetchType.EAGER, mappedBy = "orders")
-	// fetch is always LAZY for a collection
+	
+	@OneToMany(targetEntity = OrderDescription.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "orders")
 	private Set<OrderDescription> orderDesc;
 	
 	@ManyToOne(targetEntity = Customers.class,cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch = FetchType.EAGER)

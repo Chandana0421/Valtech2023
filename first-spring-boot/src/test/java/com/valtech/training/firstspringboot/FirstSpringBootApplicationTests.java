@@ -34,6 +34,7 @@ class FirstSpringBootApplicationTests {
 		assertEquals("Hello Spring Boot", helloWorld.hello());
 	}
 	
+	//private test cases don't run!
 	@Test
 	private void testEmployee() {
 		assertEquals(4, employeeDAO.count());

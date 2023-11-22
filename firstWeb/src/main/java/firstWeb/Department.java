@@ -1,7 +1,5 @@
 package firstWeb;
 
-import java.util.List;
-
 public class Department {
 	
 	private int id;

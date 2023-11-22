@@ -31,8 +31,7 @@ public class DepartmentController {
 
 	@GetMapping("/deptList")
 	public String getDepartment(Model model) {
-		deptModel = new DepartmentModel(deptService.getFirstDepartment());
-		model.addAttribute("department", deptModel);
+		model.addAttribute("department",new DepartmentModel(deptService.getFirstDepartment()));
 		model.addAttribute("employees",
 				deptModel.getEmployees().stream().map(e -> new EmployeeModel(e)).collect(Collectors.toList()));
 		return "department/deptList";
@@ -64,8 +63,7 @@ public class DepartmentController {
 
 	@GetMapping("/first")
 	public String firstDepartment(Model model) {
-		deptModel = new DepartmentModel(deptService.getFirstDepartment());
-		model.addAttribute("department", deptModel);
+		model.addAttribute("department", new DepartmentModel(deptService.getFirstDepartment()));
 		model.addAttribute("employees",
 				deptModel.getEmployees().stream().map(e -> new EmployeeModel(e)).collect(Collectors.toList()));
 		return "department/deptList";
@@ -73,8 +71,7 @@ public class DepartmentController {
 
 	@GetMapping("/last")
 	public String lastDepartment(Model model) {
-		deptModel = new DepartmentModel(deptService.getLastDepartment());
-		model.addAttribute("department", deptModel);
+		model.addAttribute("department", new DepartmentModel(deptService.getLastDepartment()));
 		model.addAttribute("employees",
 				deptModel.getEmployees().stream().map(e -> new EmployeeModel(e)).collect(Collectors.toList()));
 		return "department/deptList";

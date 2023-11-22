@@ -60,8 +60,10 @@
 				 
 				
 			</div>
-			
-			<button class="qrbutton"  style="background-image: url('qr.png');"></button>
+			<!-- <div class="rightcorner">
+			<p class="text-xs link-color px-1">Scan to get the app</p><p>
+			<img alt="" src="qr.png">
+			</div> -->
 		</div>
 </body>
 </html>

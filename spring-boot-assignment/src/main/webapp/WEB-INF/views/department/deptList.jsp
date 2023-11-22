@@ -59,9 +59,6 @@
 			<td>${e.experience}</td>
 			<td>${e.salary}</td>
 			<td>${e.age}</td>
-			<%-- <td><a href="delete?id=${e.id}">Delete</a> <a
-				href="edit?id=${e.id}">Edit</a>
-				<a href="view?id=${e.id}">View</a></td> --%>
 		</tr>
 		<%
 		}

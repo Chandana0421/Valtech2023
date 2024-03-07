@@ -1,11 +1,8 @@
 package com.valtech.training.spring.test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

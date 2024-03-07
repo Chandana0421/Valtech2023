@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import com.mysql.cj.x.protobuf.MysqlxConnection.Close;
 import com.valtech.training.hibernate.Employee;
 
 @Repository //- for all dao classes

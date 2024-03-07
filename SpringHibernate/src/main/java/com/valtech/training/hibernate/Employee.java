@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
-
-import com.mysql.cj.conf.ConnectionUrl.Type;
 @Entity
 public class Employee {
 	

@@ -1,4 +1,4 @@
-package Core_Java;
+package core.java.practice;
 import java.util.*;
 public class Listpractice {
 	public static void main(String[] args) {

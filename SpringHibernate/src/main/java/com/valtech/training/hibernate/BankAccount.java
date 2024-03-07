@@ -1,6 +1,5 @@
 package com.valtech.training.hibernate;
 
-import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
  @Entity

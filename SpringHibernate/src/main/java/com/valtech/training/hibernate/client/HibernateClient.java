@@ -1,14 +1,13 @@
 package com.valtech.training.hibernate.client;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
 
-import org.hibernate.*;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 
 import com.valtech.training.hibernate.Account;
 import com.valtech.training.hibernate.Address;
@@ -21,33 +20,44 @@ import com.valtech.training.hibernate.Employee;
 import com.valtech.training.hibernate.Registration;
 import com.valtech.training.hibernate.TellerTx;
 import com.valtech.training.hibernate.Tx;
+import com.valtech.training.hibernate.User;
 
 public class HibernateClient {
 
 	public static void main(String[] args) throws Exception {
 		AnnotationConfiguration cfg = new AnnotationConfiguration();
-		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-		cfg.addAnnotatedClass(Employee.class);
-
-		// addAnnotated class returns configuration so it is possible to do
-		cfg.addAnnotatedClass(Tx.class).addAnnotatedClass(ChequeTx.class).addAnnotatedClass(TellerTx.class)
-				.addAnnotatedClass(AtmTx.class);
-		
-		cfg.addAnnotatedClass(Customer.class).addAnnotatedClass(Address.class);
-		cfg.addAnnotatedClass(Account.class);
-		
-		cfg.addAnnotatedClass(Registration.class); //no need to add embedded class
-		
-		cfg.addAnnotatedClass(BankAccount.class);
-		
+//		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+//		cfg.addAnnotatedClass(Employee.class);
+//
+//		// addAnnotated class returns configuration so it is possible to do
+//		cfg.addAnnotatedClass(Tx.class).addAnnotatedClass(ChequeTx.class).addAnnotatedClass(TellerTx.class)
+//				.addAnnotatedClass(AtmTx.class);
+//		
+//		cfg.addAnnotatedClass(Customer.class).addAnnotatedClass(Address.class);
+//		cfg.addAnnotatedClass(Account.class);
+//		
+//		cfg.addAnnotatedClass(Registration.class); //no need to add embedded class
+//		
+//		cfg.addAnnotatedClass(BankAccount.class);
+		cfg.addAnnotatedClass(User.class);
 		
 		SessionFactory sesFac = cfg.buildSessionFactory();
 		Session ses = sesFac.openSession();
 		Transaction tr = ses.beginTransaction();
 		
-		ses.persist(new BankAccount(new BankAccountId("Sb",1),30000));
-		BankAccountId id = new BankAccountId("Sb",1);
-		BankAccount bank = (BankAccount) ses.load(BankAccount.class, id);
+		User test = (User) ses.get(User.class, 1);
+		System.out.println(test.getFirstName());
+//		test.setFirstName("Chandan");
+		
+		SessionFactory sesFac2 = cfg.buildSessionFactory();
+		Session ses2 = sesFac2.openSession();
+		Transaction tr2 = ses2.beginTransaction();
+		User test2 = (User) ses2.get(User.class, 1);
+		System.out.println(test2.getFirstName());
+
+//		ses.persist(new BankAccount(new BankAccountId("Sb",1),30000));
+//		BankAccountId id = new BankAccountId("Sb",1);
+//		BankAccount bank = (BankAccount) ses.load(BankAccount.class, id);
 		
 //		ses.persist(new Employee("galeej", df.parse("15-08-1947"), 200000, 'F', false));
 		
@@ -118,16 +128,19 @@ public class HibernateClient {
 		
 		
 		
-		Query query = ses.getNamedQuery("Tx.findAllByCityAndAmountGreaterThan");
-		//Query query = ses.createQuery("select t from Tx t join t.account.customers c where c.address.city = ? and t.amount > ?");
-		query.setString(0, "Bengaluru");
-		query.setFloat(1,1000);
-		query.list().forEach(t -> System.out.println(t));
+//		Query query = ses.getNamedQuery("Tx.findAllByCityAndAmountGreaterThan");
+//		//Query query = ses.createQuery("select t from Tx t join t.account.customers c where c.address.city = ? and t.amount > ?");
+//		query.setString(0, "Bengaluru");
+//		query.setFloat(1,1000);
+//		query.list().forEach(t -> System.out.println(t));
 		
-		System.out.println("Loading");
 		tr.commit();
 		ses.close();
 		sesFac.close();
+		
+		tr2.commit();
+		ses2.close();
+		sesFac2.close();
 
 	}
 }

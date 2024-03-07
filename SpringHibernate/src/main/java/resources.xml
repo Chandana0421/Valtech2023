@@ -4,16 +4,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans spring-beans-3.2.xsd ">
 
-<!-- setting up transaction manager -->
-	<p:bean autowire="no" id="tm" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-	<p:property name="sessionFactory" ref="sessionFactory"></p:property>
+	<!-- setting up transaction manager -->
+	<p:bean autowire="no" id="tm"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<p:property name="sessionFactory" ref="sessionFactory"></p:property>
 	</p:bean>
-	
+
 	<!-- Register Datasource -->
-	<p:bean id="dataSource" class="com.mysql.cj.jdbc.MysqlDataSource">
-		<!-- 
-		<p:property name="driverClassName"
-			value="com.mysql.jdbc.Driver"></p:property> -->
+	<p:bean id="dataSource"
+		class="com.mysql.cj.jdbc.MysqlDataSource">
+		<!-- <p:property name="driverClassName" value="com.mysql.jdbc.Driver"></p:property> -->
 		<p:property name="url"
 			value="jdbc:mysql://localhost:3306/valtechOct2023"></p:property>
 		<p:property name="user" value="root"></p:property>
@@ -24,7 +24,7 @@
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<!-- requires a source, but because we've given auto-wire we don't have 
 			to define it here again -->
-			<p:property name="dataSource" ref="dataSource"></p:property>
+		<p:property name="dataSource" ref="dataSource"></p:property>
 		<p:property name="annotatedClasses">
 			<p:list>
 				<p:value>com.valtech.training.hibernate.Employee</p:value>

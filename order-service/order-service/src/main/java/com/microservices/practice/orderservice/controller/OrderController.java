@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.microservices.practice.orderservice.ProductServiceProxy;
 import com.microservices.practice.orderservice.model.Order;
+import com.microservices.practice.orderservice.model.Product;
 
 @RestController
 public class OrderController {

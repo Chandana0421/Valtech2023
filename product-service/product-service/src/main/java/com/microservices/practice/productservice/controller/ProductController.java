@@ -18,7 +18,7 @@ public class ProductController {
 	@Autowired
 	private ProductRepository repository;
 
-	@GetMapping("/view-product/{productId}")
+	@GetMapping("/view-product/productId/{productId}")
 	public Product viewProductById(@PathVariable("productId") int productId){
 		 Product product = repository.getReferenceById(productId);
 		 product.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
